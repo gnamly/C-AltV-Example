@@ -1,0 +1,39 @@
+﻿# Configs
+**/DatabaseConfig.json
+**/GameConfig.json
+
+# alt:V
+resources/
+modules/
+data/
+cache/
+crashdumps/
+./screenshots/
+cdn_upload/
+*.exe
+*.sh
+*so.*
+*.log
+*.dll
+server.cfg
+server.toml
+altv-server.exe
+AltV.Net.Host.runtimeconfig.json
+
+# Build
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# .NET
+*.DotSettings.user

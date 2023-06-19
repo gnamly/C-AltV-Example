@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>Core</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AltV.Net" Version="14.0.2" />
+      <PackageReference Include="AltV.Net.Async" Version="14.0.2" />
+      <PackageReference Include="Autofac" Version="7.0.1" />
+      <PackageReference Include="CSharpDiscordWebhook.NET" Version="2.7.1" />
+      <PackageReference Include="Google.Protobuf" Version="3.22.3" />
+      <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+      <PackageReference Include="Grpc.Net.Client" Version="2.53.0-pre1" />
+      <PackageReference Include="Grpc.Tools" Version="2.54.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="NodaTime" Version="3.1.9" />
+      <PackageReference Include="NodaTime.Serialization.JsonNet" Version="3.0.1" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" Version="7.0.4" />
+      <PackageReference Include="Npgsql.NodaTime" Version="7.0.4" />
+      <PackageReference Include="protobuf-net.Grpc" Version="1.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="resource.toml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Remove="AdminAPI\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="AdminAPI\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="AdminAPI\**" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="RD /S /Q &quot;$(SolutionDir)resources\core&quot;&#xA;if not exist &quot;$(SolutionDir)resources\core&quot; mkdir &quot;$(SolutionDir)resources\core&quot;&#xA;xcopy /y /i &quot;$(TargetDir)*&quot; &quot;$(SolutionDir)resources\core\&quot; /exclude:excludedfileslist.txt&#xA;copy /y &quot;$(TargetDir)DatabaseConfig.json&quot; &quot;$(SolutionDir)DatabaseConfig.json&quot;&#xA;copy /y &quot;$(TargetDir)GameConfig.json&quot; &quot;$(SolutionDir)GameConfig.json&quot;" />
+    </Target>
+
+</Project>

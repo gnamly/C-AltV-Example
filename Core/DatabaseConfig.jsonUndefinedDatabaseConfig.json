@@ -1,0 +1,7 @@
+﻿{
+  "Host": "localhost",
+  "User": "california",
+  "Password": "california",
+  "Database": "california",
+  "Port": 5432
+}

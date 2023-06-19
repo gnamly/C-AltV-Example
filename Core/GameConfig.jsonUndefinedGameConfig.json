@@ -1,0 +1,29 @@
+﻿{
+  "DiscordLogHook": "https://discord.com/api/webhooks/1100902622753468558/p0xwyTw7VNw-2JAh_w9m-dLZoJJpbPWgFYLZlAxtWWP1UvAGWQVz-Pk9qksFJt47nox0",
+  "SkipLoginId": "ab1e2c63-1259-4fcc-adbc-0e3ead54935d",
+  "UseDebugVue": true,
+  "CharacterSelectPos": {
+    "X": -145.9370574951172,
+    "Y": -575.7879638671875,
+    "Z": 32.424442291259766
+  },
+  "CharacterSelectRot": 249.58352661132812,
+  "PlayerMaxCharacterSlots": 1,
+  "CharacterCreatorPos": {
+    "X": -145.9370574951172,
+    "Y": -575.7879638671875,
+    "Z": 32.424442291259766
+  },
+  "CharacterCreatorRot": 249.58352661132812,
+  "CharacterNewSpawnPos": {
+    "X": -867.1437377929688,
+    "Y": -172.6201934814453,
+    "Z": 37.799232482910156
+  },
+  "StreamConfigData": {
+    "TimeBetweenUpdates": 1000
+  },
+  "TimeBetweenVehicleUpdates": 10000,
+  "TimeBetweenVehicleSaves": 30000,
+  "MsPerGameMinute": 60000
+}
